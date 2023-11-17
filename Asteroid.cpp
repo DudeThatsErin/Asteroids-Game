@@ -47,6 +47,11 @@ void Asteroid::render(sf::RenderWindow& window)
     window.draw(array, sf::Transform().translate(position).rotate(angle));
 }
 
+const sf::VertexArray& Asteroid::getVertexArray() const
+{
+    return array;
+}
+
 // makes asteroids go in random directions
 sf::Vector2f Asteroid::getRandomDirection()
 {
@@ -58,7 +63,7 @@ sf::Vector2f Asteroid::getRandomDirection()
     return sf::Vector2f(cos(angle), sin(angle));
 }
 
-// makes asteroids spawn at random positions
+// makes asteroids spawn at random positions; BUG
 sf::Vector2f Asteroid::getRandomPosition()
 {
     std::random_device rd;

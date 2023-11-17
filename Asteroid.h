@@ -9,12 +9,14 @@ constexpr float ASTEROID_SPAWN_TIME = 1.0f;
 
 class Asteroid : public Entity {
 public:
-
+    sf::Vector2f position;
     Asteroid(sf::Vector2f direction = Asteroid::getRandomDirection(), sf::Vector2f position = Asteroid::getRandomPosition());
 
     void update(float deltaTime) override;
 
     void render(sf::RenderWindow& window) override;
+
+    const sf::VertexArray& getVertexArray() const;
 
     // moves asteroids in random directions
     static sf::Vector2f getRandomDirection();
@@ -25,5 +27,4 @@ public:
 private:
     sf::VertexArray array;
     sf::Vector2f direction;
-    sf::Vector2f position;
 };
