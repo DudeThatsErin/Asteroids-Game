@@ -1,6 +1,7 @@
 #include "Asteroid.h"
 #include <random>
 #include <iostream>
+static std::mt19937 gen(std::random_device{}());
 
 Asteroid::Asteroid(sf::Vector2f direction, sf::Vector2f position)
     : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11) {
@@ -52,27 +53,31 @@ const sf::VertexArray& Asteroid::getVertexArray() const
     return array;
 }
 
+template<typename T>
+T generate(T lower, T upper)
+{
+    if constexpr (std::is_floating_point_v<T>)
+    {
+        return std::uniform_real_distribution<T>{ lower, upper }(gen);
+    }
+    else
+    {
+        return std::uniform_int_distribution<T>{ lower, upper }(gen);
+    }
+}
+
 // makes asteroids go in random directions
 sf::Vector2f Asteroid::getRandomDirection()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> dist(0.0f, 2.0f * M_PI);
-
-    float angle = dist(gen);
+    float angle = generate(0.0f, 2.0f * M_PI);
     return sf::Vector2f(cos(angle), sin(angle));
 }
 
 // makes asteroids spawn at random positions; BUG
 sf::Vector2f Asteroid::getRandomPosition()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> xAxis(ASTEROID_W / 2.0f, SCREEN_WIDTH - ASTEROID_W / 2.0f);
-    std::uniform_real_distribution<float> yAxis(ASTEROID_H / 2.0f, SCREEN_HEIGHT - ASTEROID_H / 2.0f);
+    float xAxis = generate(ASTEROID_W / 2.0f, SCREEN_WIDTH - ASTEROID_W / 2.0f);
+    float yAxis = generate(ASTEROID_H / 2.0f, SCREEN_HEIGHT - ASTEROID_H / 2.0f);
 
-    printf("X-Axis %i\n", xAxis(gen));
-    printf("Y-Axis %i\n", yAxis(gen));
-
-    return sf::Vector2f(xAxis(gen), yAxis(gen));
+    return sf::Vector2f(xAxis, yAxis);
 }

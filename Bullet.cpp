@@ -14,7 +14,7 @@ void Bullet::update(float deltaTime)
     }
 
     for (size_t i = 0; i < Game::entities.size(); i++) {
-        if (typeid(*Game::entities[i] == typeid(Asteroid))) {
+        if (typeid(*Game::entities[i]) == typeid(Asteroid)) {
             Asteroid* asteroid = dynamic_cast<Asteroid*>(Game::entities[i]);
             const sf::VertexArray& polygon = asteroid->getVertexArray();
             sf::Transform transform = sf::Transform().translate(asteroid->position).rotate(asteroid->angle);
