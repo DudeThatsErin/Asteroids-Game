@@ -4,7 +4,7 @@
 #include <type_traits>
 static std::mt19937 gen(std::random_device{}());
 
-Asteroid::Asteroid(sf::Vector2f direction)
+Asteroid::Asteroid(sf::Vector2f direction, sf::Vector2f position)
     : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11) {
     array[0].position = sf::Vector2f(-40, 40);
     array[1].position = sf::Vector2f(-50, 10);
@@ -74,7 +74,7 @@ sf::Vector2f Asteroid::getRandomDirection()
     return sf::Vector2f(cos(angle), sin(angle));
 }
 
-// makes asteroids spawn at random positions; BUG
+// makes asteroids spawn at random positions
 sf::Vector2f Asteroid::getRandomPosition()
 {
     float xAxis = generate(ASTEROID_W / 2.0f, SCREEN_WIDTH - ASTEROID_W / 2.0f);

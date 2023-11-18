@@ -4,7 +4,7 @@
 #include "tAsteroid.h"
 static std::mt19937 gen(std::random_device{}());
 
-tAsteroid::tAsteroid(sf::Vector2f direction)
+tAsteroid::tAsteroid(sf::Vector2f direction, sf::Vector2f position)
     : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11) {
     array[0].position = sf::Vector2f(-100, 100);
     array[1].position = sf::Vector2f(-50, 50);
@@ -74,7 +74,7 @@ sf::Vector2f tAsteroid::getRandomDirection()
     return sf::Vector2f(cos(angle), sin(angle));
 }
 
-// makes asteroids spawn at random positions; BUG
+// makes asteroids spawn at random positions
 sf::Vector2f tAsteroid::getRandomPosition()
 {
     float xAxis = generate(tASTEROID_W / 2.0f, SCREEN_WIDTH - tASTEROID_W / 2.0f);
