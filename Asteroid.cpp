@@ -71,7 +71,6 @@ T generate(T lower, T upper)
 sf::Vector2f Asteroid::getRandomDirection()
 {
     float angle = generate(0.0f, 2.0f * M_PI);
-    printf("angle: %f\n", angle);
     return sf::Vector2f(cos(angle), sin(angle));
 }
 
@@ -81,7 +80,5 @@ sf::Vector2f Asteroid::getRandomPosition()
     float xAxis = generate(ASTEROID_W / 2.0f, SCREEN_WIDTH - ASTEROID_W / 2.0f);
     float yAxis = generate(ASTEROID_H / 2.0f, SCREEN_HEIGHT - ASTEROID_H / 2.0f);
 
-    printf("xAxis: %f\n", xAxis);
-    printf("yAxis: %f\n", yAxis);
     return sf::Vector2f(xAxis, yAxis);
 }

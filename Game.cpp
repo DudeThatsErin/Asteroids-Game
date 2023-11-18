@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Asteroid.h"
 #include "tAsteroid.h"
+#include <iostream>
 
 std::vector<Entity*> Game::entities{};
 std::list <std::vector<Entity*>::const_iterator> Game::removeList{};
@@ -12,8 +13,17 @@ size_t Game::score{};
 sf::Text Game::scoreText{};
 sf::Font Game::font{};
 
+
+
 void Game::begin()
 {
+
+    font.loadFromFile("arial.ttf");
+
+    scoreText.setFont(font);
+    scoreText.setPosition(sf::Vector2f(40, 20));
+    scoreText.setCharacterSize(60);
+
 	entities.push_back(new Player());
     tAsteroidSpawnTime = tASTEROID_SPAWN_TIME;
 	asteroidSpawnTime = ASTEROID_SPAWN_TIME;
@@ -57,4 +67,6 @@ void Game::update(sf::RenderWindow& window, float deltaTime)
         Game::entities.push_back(new tAsteroid());
         tAsteroidSpawnTime = tASTEROID_SPAWN_TIME;
     }
+    scoreText.setString(std::to_string(score));
+    window.draw(scoreText);
 }

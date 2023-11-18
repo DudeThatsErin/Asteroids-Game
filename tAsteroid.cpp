@@ -71,7 +71,6 @@ T generate(T lower, T upper)
 sf::Vector2f tAsteroid::getRandomDirection()
 {
     float angle = generate(0.0f, 2.0f * M_PI);
-    printf("angle: %f\n", angle);
     return sf::Vector2f(cos(angle), sin(angle));
 }
 

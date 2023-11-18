@@ -9,7 +9,6 @@ constexpr float tASTEROID_SPAWN_TIME = 1.0f;
 
 class tAsteroid : public Entity {
 public:
-    sf::Vector2f position;
     tAsteroid(sf::Vector2f direction = tAsteroid::getRandomDirection());
 
     void update(float deltaTime) override;

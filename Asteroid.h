@@ -5,11 +5,10 @@ constexpr float ASTEROID_W = 90.0f;
 constexpr float ASTEROID_H = 80.0f;
 constexpr float ASTEROID_SPIN = 25.0f;
 constexpr float ASTEROID_SPEED = 280.0f;
-constexpr float ASTEROID_SPAWN_TIME = 1000.0f;
+constexpr float ASTEROID_SPAWN_TIME = 1.0f;
 
 class Asteroid : public Entity {
 public:
-    sf::Vector2f position;
     Asteroid(sf::Vector2f direction = Asteroid::getRandomDirection());
 
     void update(float deltaTime) override;
