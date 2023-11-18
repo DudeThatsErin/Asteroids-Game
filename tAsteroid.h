@@ -1,16 +1,16 @@
 #pragma once
 #include "Entity.h"
 
-constexpr float ASTEROID_W = 90.0f;
-constexpr float ASTEROID_H = 80.0f;
-constexpr float ASTEROID_SPIN = 25.0f;
-constexpr float ASTEROID_SPEED = 280.0f;
-constexpr float ASTEROID_SPAWN_TIME = 1000.0f;
+constexpr float tASTEROID_W = 90.0f;
+constexpr float tASTEROID_H = 80.0f;
+constexpr float tASTEROID_SPIN = 25.0f;
+constexpr float tASTEROID_SPEED = 280.0f;
+constexpr float tASTEROID_SPAWN_TIME = 1.0f;
 
-class Asteroid : public Entity {
+class tAsteroid : public Entity {
 public:
     sf::Vector2f position;
-    Asteroid(sf::Vector2f direction = Asteroid::getRandomDirection());
+    tAsteroid(sf::Vector2f direction = tAsteroid::getRandomDirection());
 
     void update(float deltaTime) override;
 

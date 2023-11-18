@@ -1,16 +1,21 @@
 #include "Game.h"
 #include "Player.h"
 #include "Asteroid.h"
+#include "tAsteroid.h"
 
 std::vector<Entity*> Game::entities{};
 std::list <std::vector<Entity*>::const_iterator> Game::removeList{};
 std::list <Entity*> Game::addList{};
 float Game::asteroidSpawnTime{};
+float Game::tAsteroidSpawnTime{};
+size_t Game::score{};
+sf::Text Game::scoreText{};
+sf::Font Game::font{};
 
 void Game::begin()
 {
 	entities.push_back(new Player());
-
+    tAsteroidSpawnTime = tASTEROID_SPAWN_TIME;
 	asteroidSpawnTime = ASTEROID_SPAWN_TIME;
 }
 
@@ -19,6 +24,7 @@ void Game::update(sf::RenderWindow& window, float deltaTime)
     Game::addList.clear();
     Game::removeList.clear();
     window.clear();
+    tAsteroidSpawnTime -= deltaTime;
     asteroidSpawnTime -= deltaTime;
 
     Game::addList.clear();
@@ -44,5 +50,11 @@ void Game::update(sf::RenderWindow& window, float deltaTime)
     if (asteroidSpawnTime <= 0.0f) {
         Game::entities.push_back(new Asteroid());
         asteroidSpawnTime = ASTEROID_SPAWN_TIME;
+    }
+    
+    // create more than 1 triangular asteroid at a time
+    if (tAsteroidSpawnTime <= 0.0f) {
+        Game::entities.push_back(new tAsteroid());
+        tAsteroidSpawnTime = tASTEROID_SPAWN_TIME;
     }
 }

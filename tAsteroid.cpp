@@ -1,21 +1,21 @@
-#include "Asteroid.h"
 #include <random>
 #include <iostream>
 #include <type_traits>
+#include "tAsteroid.h"
 static std::mt19937 gen(std::random_device{}());
 
-Asteroid::Asteroid(sf::Vector2f direction)
+tAsteroid::tAsteroid(sf::Vector2f direction)
     : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11) {
-    array[0].position = sf::Vector2f(-40, 40);
-    array[1].position = sf::Vector2f(-50, 10);
-    array[2].position = sf::Vector2f(-10, -20);
-    array[3].position = sf::Vector2f(-20, -40);
-    array[4].position = sf::Vector2f(10, -40);
+    array[0].position = sf::Vector2f(-100, 100);
+    array[1].position = sf::Vector2f(-50, 50);
+    array[2].position = sf::Vector2f(-80, -60);
+    array[3].position = sf::Vector2f(-10, -10);
+    array[4].position = sf::Vector2f(15, -15);
     array[5].position = sf::Vector2f(40, -20);
     array[6].position = sf::Vector2f(40, -10);
     array[7].position = sf::Vector2f(0, 0);
-    array[8].position = sf::Vector2f(40, 20);
-    array[9].position = sf::Vector2f(0, 30);
+    array[8].position = sf::Vector2f(80, 60);
+    array[9].position = sf::Vector2f(0, 40);
     array[10].position = array[0].position; // closes the asteroid; without this the asteroid has an open spot; only needed for LinesStrip
 
     for (size_t i = 0; i < array.getVertexCount(); i++) {
@@ -23,33 +23,33 @@ Asteroid::Asteroid(sf::Vector2f direction)
     }
 }
 
-void Asteroid::update(float deltaTime)
+void tAsteroid::update(float deltaTime)
 {
-    position += ASTEROID_SPEED * direction * deltaTime;
-    angle += ASTEROID_SPIN * deltaTime;
+    position += tASTEROID_SPEED * direction * deltaTime;
+    angle += tASTEROID_SPIN * deltaTime;
 
     // bounce asteroids on edges of screen
-    if (position.x < ASTEROID_W / 2.0f) {
+    if (position.x < tASTEROID_W / 2.0f) {
         direction.x = abs(direction.x);
     }
-    else if (position.x > SCREEN_WIDTH - ASTEROID_W / 2.0f) {
+    else if (position.x > SCREEN_WIDTH - tASTEROID_W / 2.0f) {
         direction.x = -abs(direction.x);
     }
 
-    if (position.y < ASTEROID_H / 2.0f) {
+    if (position.y < tASTEROID_H / 2.0f) {
         direction.y = abs(direction.y);
     }
-    else if (position.y > SCREEN_HEIGHT - ASTEROID_H / 2.0f) {
+    else if (position.y > SCREEN_HEIGHT - tASTEROID_H / 2.0f) {
         direction.y = -abs(direction.y);
     }
 }
 
-void Asteroid::render(sf::RenderWindow& window)
+void tAsteroid::render(sf::RenderWindow& window)
 {
     window.draw(array, sf::Transform().translate(position).rotate(angle));
 }
 
-const sf::VertexArray& Asteroid::getVertexArray() const
+const sf::VertexArray& tAsteroid::getVertexArray() const
 {
     return array;
 }
@@ -68,7 +68,7 @@ T generate(T lower, T upper)
 }
 
 // makes asteroids go in random directions
-sf::Vector2f Asteroid::getRandomDirection()
+sf::Vector2f tAsteroid::getRandomDirection()
 {
     float angle = generate(0.0f, 2.0f * M_PI);
     printf("angle: %f\n", angle);
@@ -76,12 +76,10 @@ sf::Vector2f Asteroid::getRandomDirection()
 }
 
 // makes asteroids spawn at random positions; BUG
-sf::Vector2f Asteroid::getRandomPosition()
+sf::Vector2f tAsteroid::getRandomPosition()
 {
-    float xAxis = generate(ASTEROID_W / 2.0f, SCREEN_WIDTH - ASTEROID_W / 2.0f);
-    float yAxis = generate(ASTEROID_H / 2.0f, SCREEN_HEIGHT - ASTEROID_H / 2.0f);
+    float xAxis = generate(tASTEROID_W / 2.0f, SCREEN_WIDTH - tASTEROID_W / 2.0f);
+    float yAxis = generate(tASTEROID_H / 2.0f, SCREEN_HEIGHT - tASTEROID_H / 2.0f);
 
-    printf("xAxis: %f\n", xAxis);
-    printf("yAxis: %f\n", yAxis);
     return sf::Vector2f(xAxis, yAxis);
 }
