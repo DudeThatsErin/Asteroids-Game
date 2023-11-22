@@ -63,6 +63,7 @@ bool physics::intersects(const sf::VertexArray& poly1, const sf::VertexArray& po
 	return true;
 }
 
+
 sf::VertexArray physics::getTransformed(const sf::VertexArray& polygon, const sf::Transform transform)
 {
     sf::VertexArray transformed = polygon;

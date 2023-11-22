@@ -100,10 +100,6 @@ void Game::update(sf::RenderWindow& window, float deltaTime) {
     tAsteroidSpawnTime -= deltaTime;
     asteroidSpawnTime -= deltaTime;
 
-    Game::addList.clear();
-    Game::removeList.clear();
-    window.clear();
-
     for (size_t i = 0; i < Game::entities.size(); i++) {
         Game::entities[i]->update(deltaTime);
         Game::entities[i]->render(window);

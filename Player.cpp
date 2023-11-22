@@ -88,7 +88,7 @@ void Player::update(float deltaTime)
 			}
 		} else if (typeid(*Game::entities[i]) == typeid(tAsteroid)) {
             tAsteroid* tasteroid = dynamic_cast<tAsteroid*>(Game::entities[i]);
-
+        
             if (tasteroid->gGetLife() < tASTEROID_HIT_TIME) {
                 continue;
             }

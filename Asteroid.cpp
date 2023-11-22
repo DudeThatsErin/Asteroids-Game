@@ -78,8 +78,29 @@ sf::Vector2f Asteroid::getRandomDirection()
 // makes asteroids spawn at random positions
 sf::Vector2f Asteroid::getRandomPosition()
 {
-    float xAxis = generate(ASTEROID_W / 2.0f, SCREEN_WIDTH - ASTEROID_W / 2.0f);
-    float yAxis = generate(ASTEROID_H / 2.0f, SCREEN_HEIGHT - ASTEROID_H / 2.0f);
-
-    return sf::Vector2f(xAxis, yAxis);
+    int side = generate(0, 4);
+    std::cout << "Side: " << side << std::endl;
+    float xAxis, yAxis;
+    if (side == 0) {
+        xAxis = 0;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
+    else if (side == 1)
+    {
+        xAxis = SCREEN_WIDTH;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
+    else if (side == 2) {
+        xAxis = 0;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
+    else if (side == 4)
+    {
+        xAxis = SCREEN_WIDTH;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
 }

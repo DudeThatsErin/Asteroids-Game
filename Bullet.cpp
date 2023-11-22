@@ -4,7 +4,7 @@
 #include "Physics.h"
 
 Bullet::Bullet(sf::Vector2f position, sf::Vector2f direction)
-	: shape(1.0f), direction(direction), Entity(position, 0.0f), lifeTime(BULLET_LIFE) {}
+	: shape(1.0f), color(sf::Color::Green), direction(direction), Entity(position, 0.0f), lifeTime(BULLET_LIFE) {}
 
 void Bullet::update(float deltaTime)
 {

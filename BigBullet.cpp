@@ -4,7 +4,7 @@
 #include "tAsteroid.h"
 
 BigBullet::BigBullet(sf::Vector2f position, sf::Vector2f direction)
-    : shape(4.0f), direction(direction), Entity(position, 0.0f), lifeTime(tBULLET_LIFE) {}
+    : shape(4.0f), color(sf::Color::Red), direction(direction), Entity(position, 0.0f), lifeTime(tBULLET_LIFE) {}
 
 void BigBullet::update(float deltaTime)
 {

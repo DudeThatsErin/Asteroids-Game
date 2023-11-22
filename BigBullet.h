@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-constexpr float tBULLET_SPEED = 200.0f;
+constexpr float tBULLET_SPEED = 300.0f;
 constexpr float tSHOOT_DELAY = 0.2f;
 constexpr float tBULLET_LIFE = 3.0f;
 
@@ -14,5 +14,6 @@ public:
 private:
     sf::Vector2f direction;
     sf::CircleShape shape;
+    sf::Color color;
     float lifeTime;
 };

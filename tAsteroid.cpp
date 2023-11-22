@@ -33,14 +33,14 @@ void tAsteroid::update(float deltaTime)
     if (position.x < tASTEROID_W / 2.0f) {
         direction.x = abs(direction.x);
     }
-    else if (position.x > SCREEN_WIDTH - tASTEROID_W / 2.0f) {
+    else if (position.x > SCREEN_WIDTH + tASTEROID_W / 2.0f) {
         direction.x = -abs(direction.x);
     }
 
     if (position.y < tASTEROID_H / 2.0f) {
         direction.y = abs(direction.y);
     }
-    else if (position.y > SCREEN_HEIGHT - tASTEROID_H / 2.0f) {
+    else if (position.y > SCREEN_HEIGHT + tASTEROID_H / 2.0f) {
         direction.y = -abs(direction.y);
     }
 }
@@ -78,8 +78,29 @@ sf::Vector2f tAsteroid::getRandomDirection()
 // makes asteroids spawn at random positions
 sf::Vector2f tAsteroid::getRandomPosition()
 {
-    float xAxis = generate(tASTEROID_W / 2.0f, SCREEN_WIDTH - tASTEROID_W / 2.0f);
-    float yAxis = generate(tASTEROID_H / 2.0f, SCREEN_HEIGHT - tASTEROID_H / 2.0f);
-
-    return sf::Vector2f(xAxis, yAxis);
+    int side = generate(0, 4);
+    std::cout << "Side: " << side << std::endl;
+    float xAxis, yAxis;
+    if (side == 0) {
+        xAxis = 0;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
+    else if (side == 1)
+    {
+        xAxis = SCREEN_WIDTH;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
+    else if (side == 2) {
+        xAxis = 0;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
+    else if (side == 4)
+    {
+        xAxis = SCREEN_WIDTH;
+        yAxis = generate(0.0f, SCREEN_HEIGHT);
+        return sf::Vector2f(xAxis, yAxis);
+    }
 }
