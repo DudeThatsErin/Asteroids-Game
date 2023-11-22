@@ -5,7 +5,7 @@
 static std::mt19937 gen(std::random_device{}());
 
 tAsteroid::tAsteroid(sf::Vector2f direction, sf::Vector2f position)
-    : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11) {
+    : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11), tLife() {
     array[0].position = sf::Vector2f(-100, 100);
     array[1].position = sf::Vector2f(-50, 50);
     array[2].position = sf::Vector2f(-80, -60);
@@ -25,6 +25,7 @@ tAsteroid::tAsteroid(sf::Vector2f direction, sf::Vector2f position)
 
 void tAsteroid::update(float deltaTime)
 {
+    tLife += deltaTime;
     position += tASTEROID_SPEED * direction * deltaTime;
     angle += tASTEROID_SPIN * deltaTime;
 

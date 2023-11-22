@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include <SFML/Audio.hpp>
 
 constexpr float PLAYER_W = 50.0f;
 constexpr float PLAYER_H = 40.0f;

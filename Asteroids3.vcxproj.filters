@@ -36,6 +36,9 @@
     <ClCompile Include="tAsteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BigBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroid.h">
@@ -62,5 +65,18 @@
     <ClInclude Include="tAsteroid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BigBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="large_shot.mp3" />
+    <Media Include="small-shot.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="score.dat" />
   </ItemGroup>
 </Project>

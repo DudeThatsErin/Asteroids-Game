@@ -1,4 +1,3 @@
-#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Game.h"
 
@@ -6,7 +5,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1200, 900), "Asteroids", sf::Style::Close | sf::Style::Titlebar);
     sf::Clock clock;
 
-    Game::begin();
+    Game::init();
 
     while (window.isOpen()) {
         float deltaTime = clock.restart().asSeconds();
@@ -16,8 +15,8 @@ int main() {
                 window.close();
             }
         }
+        window.clear();
         Game::update(window, deltaTime);
-
         window.display();
     }
 }
