@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-constexpr float BULLET_SPEED = 500.0f;
+constexpr float BULLET_SPEED = 700.0f;
 constexpr float SHOOT_DELAY = 0.2f;
 constexpr float BULLET_LIFE = 3.0f;
 

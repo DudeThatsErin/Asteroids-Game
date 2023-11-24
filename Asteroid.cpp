@@ -79,7 +79,6 @@ sf::Vector2f Asteroid::getRandomDirection()
 sf::Vector2f Asteroid::getRandomPosition()
 {
     int side = generate(0, 3);
-    std::cout << "Side: " << side << std::endl;
     float xAxis, yAxis;
     if (side == 0) {
         xAxis = 0;

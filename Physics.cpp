@@ -37,9 +37,9 @@ bool physics::intersects(const sf::VertexArray& poly1, const sf::VertexArray& po
 		normal /= length;
 
 		float min1 = std::numeric_limits<float>::max();
-		float max1 = std::numeric_limits<float>::min();
+		float max1 = std::numeric_limits<float>::lowest();
 		float min2 = std::numeric_limits<float>::max();
-		float max2 = std::numeric_limits<float>::min();
+		float max2 = std::numeric_limits<float>::lowest();
 
 		for (size_t j = 0; j < n1; j++) {
 			float projection =

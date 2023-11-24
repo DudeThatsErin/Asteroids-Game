@@ -115,16 +115,92 @@ void Game::update(sf::RenderWindow& window, float deltaTime) {
         Game::entities.push_back(ptr);
     }
 
-    // create more than 1 asteroid at a time
-    if (asteroidSpawnTime <= 0.0f) {
-        Game::entities.push_back(new Asteroid());
-        asteroidSpawnTime = ASTEROID_SPAWN_TIME;
-    }
+            // create more than 1 asteroid at a time
+        if (asteroidSpawnTime <= 0.0f) {
+            Game::entities.push_back(new Asteroid());
+            asteroidSpawnTime = ASTEROID_SPAWN_TIME;
+        }
+
+        // create more than 1 triangular asteroid at a time
+        if (tAsteroidSpawnTime <= 0.0f) {
+            Game::entities.push_back(new tAsteroid());
+            tAsteroidSpawnTime = tASTEROID_SPAWN_TIME;
+        }
     
-    // create more than 1 triangular asteroid at a time
-    if (tAsteroidSpawnTime <= 0.0f) {
-        Game::entities.push_back(new tAsteroid());
-        tAsteroidSpawnTime = tASTEROID_SPAWN_TIME;
+    if (score >= 100 && score <= 199) {
+        int newSpawn = asteroidSpawnTime + 2.0f;
+        int newSpawn2 = tAsteroidSpawnTime + 2.0f;
+        // create more than 1 asteroid at a time
+        if (newSpawn <= 0.0f) {
+            Game::entities.push_back(new Asteroid());
+            newSpawn = ASTEROID_SPAWN_TIME;
+        }
+
+        // create more than 1 triangular asteroid at a time
+        if (newSpawn2 <= 0.0f) {
+            Game::entities.push_back(new tAsteroid());
+            newSpawn2 = tASTEROID_SPAWN_TIME;
+        }
+    }
+    else if (score >= 200 && score <= 299) {
+        int newSpawn = asteroidSpawnTime + 2.5f;
+        int newSpawn2 = tAsteroidSpawnTime + 2.5f;
+        // create more than 1 asteroid at a time
+        if (newSpawn <= 0.0f) {
+            Game::entities.push_back(new Asteroid());
+            newSpawn = ASTEROID_SPAWN_TIME;
+        }
+
+        // create more than 1 triangular asteroid at a time
+        if (newSpawn2 <= 0.0f) {
+            Game::entities.push_back(new tAsteroid());
+            newSpawn2 = tASTEROID_SPAWN_TIME;
+        }
+    }
+    else if (score >= 300 && score <= 399) {
+        int newSpawn = asteroidSpawnTime + 3.0f;
+        int newSpawn2 = tAsteroidSpawnTime + 3.0f;
+        // create more than 1 asteroid at a time
+        if (newSpawn <= 0.0f) {
+            Game::entities.push_back(new Asteroid());
+            newSpawn = ASTEROID_SPAWN_TIME;
+        }
+
+        // create more than 1 triangular asteroid at a time
+        if (newSpawn2 <= 0.0f) {
+            Game::entities.push_back(new tAsteroid());
+            newSpawn2 = tASTEROID_SPAWN_TIME;
+        }
+    }
+    else if (score >= 400 && score <= 499) {
+        int newSpawn = asteroidSpawnTime + 3.5f;
+        int newSpawn2 = tAsteroidSpawnTime + 3.5f;
+        // create more than 1 asteroid at a time
+        if (newSpawn <= 0.0f) {
+            Game::entities.push_back(new Asteroid());
+            newSpawn = ASTEROID_SPAWN_TIME;
+        }
+
+        // create more than 1 triangular asteroid at a time
+        if (newSpawn2 <= 0.0f) {
+            Game::entities.push_back(new tAsteroid());
+            newSpawn2 = tASTEROID_SPAWN_TIME;
+        }
+    }
+    else if (score >= 500 && score <= 599) {
+        int newSpawn = asteroidSpawnTime + 4.0f;
+        int newSpawn2 = tAsteroidSpawnTime + 4.0f;
+        // create more than 1 asteroid at a time
+        if (newSpawn <= 0.0f) {
+            Game::entities.push_back(new Asteroid());
+            newSpawn = ASTEROID_SPAWN_TIME;
+        }
+
+        // create more than 1 triangular asteroid at a time
+        if (newSpawn2 <= 0.0f) {
+            Game::entities.push_back(new tAsteroid());
+            newSpawn2 = tASTEROID_SPAWN_TIME;
+        }
     }
     scoreText.setString(std::to_string(score));
     window.draw(scoreText);

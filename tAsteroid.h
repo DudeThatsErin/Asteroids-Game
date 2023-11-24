@@ -6,7 +6,7 @@ constexpr float tASTEROID_W = 90.0f;
 constexpr float tASTEROID_H = 80.0f;
 constexpr float tASTEROID_SPIN = 25.0f;
 constexpr float tASTEROID_SPEED = 280.0f;
-constexpr float tASTEROID_SPAWN_TIME = 1000.0f;
+constexpr float tASTEROID_SPAWN_TIME = 15.0f;
 constexpr float tASTEROID_HIT_TIME = 50.0f;
 
 class tAsteroid : public Entity {
