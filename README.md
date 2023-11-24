@@ -19,4 +19,4 @@ If you want to run this game for yourself, go to the Releases section on the rig
 - YouTube - Where I researched how to complete this.
 
 ## To do
-- [ ] Fix bug where bigger asteroids (when spawning) cause the player to lose the game for no reason.
+- [x] Fix bug where bigger asteroids (when spawning) cause the player to lose the game for no reason.
