@@ -21,7 +21,8 @@ If you would like to play this game. Head over to "Releases" on the right side a
 
 Once you download it. Extract it to where you would like to keep the game.
 
-All you have to do from there is run the `Asteroids3.exe` file.
+All you have to do from there is run the `Asteroids.exe` file.
+
 **DO NOT MOVE OR DELETE THE OTHER FILES - THEY ARE NECESSARY FOR GAME FUNCTIONS**
 
 ### Controls
