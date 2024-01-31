@@ -39,6 +39,8 @@ private:
 	static sf::Text titleText;
 	static sf::Text menuText;
 	static sf::Text playText;
+	static sf::Text levelText;
+	static sf::Text lastLevelText;
 	static sf::Text quitText;
 
 	static enum State { MENU, PLAYING, GAME_OVER } state;

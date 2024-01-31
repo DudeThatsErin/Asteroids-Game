@@ -5,18 +5,26 @@
 static std::mt19937 gen(std::random_device{}());
 
 tAsteroid::tAsteroid(sf::Vector2f direction, sf::Vector2f position)
-    : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11), tLife() {
-    array[0].position = sf::Vector2f(-100, 100);
-    array[1].position = sf::Vector2f(-50, 50);
-    array[2].position = sf::Vector2f(-80, -60);
-    array[3].position = sf::Vector2f(-10, -10);
-    array[4].position = sf::Vector2f(15, -15);
-    array[5].position = sf::Vector2f(40, -20);
-    array[6].position = sf::Vector2f(40, -10);
-    array[7].position = sf::Vector2f(0, 0);
-    array[8].position = sf::Vector2f(80, 60);
-    array[9].position = sf::Vector2f(0, 40);
-    array[10].position = array[0].position; // closes the asteroid; without this the asteroid has an open spot; only needed for LinesStrip
+    : Entity(position, 0), direction(direction), array(sf::LinesStrip, 19), tLife() {
+    array[0].position = sf::Vector2f(90, 10);
+    array[1].position = sf::Vector2f(70, 25);
+    array[2].position = sf::Vector2f(85, 40);
+    array[3].position = sf::Vector2f(50, 60);
+    array[4].position = sf::Vector2f(20, 60);
+    array[5].position = sf::Vector2f(-20, 45);
+    array[6].position = sf::Vector2f(-20, 35);
+    array[7].position = sf::Vector2f(-15, 25);
+    array[8].position = sf::Vector2f(-25, 15);
+    array[9].position = sf::Vector2f(-15, 5);
+    array[10].position = sf::Vector2f(-30, -10);
+    array[11].position = sf::Vector2f(-30, -35);
+    array[12].position = sf::Vector2f(-15, -45);
+    array[13].position = sf::Vector2f(0, -35);
+    array[14].position = sf::Vector2f(20, -50);
+    array[15].position = sf::Vector2f(55, -50);
+    array[16].position = sf::Vector2f(65, -40);
+    array[17].position = sf::Vector2f(80, -25);
+    array[18].position = array[0].position; // closes the asteroid; without this the asteroid has an open spot; only needed for LinesStrip
 
     for (size_t i = 0; i < array.getVertexCount(); i++) {
         array[i].color = sf::Color::White;
@@ -102,4 +110,6 @@ sf::Vector2f tAsteroid::getRandomPosition()
         yAxis = generate(0.0f, SCREEN_HEIGHT);
         return sf::Vector2f(xAxis, yAxis);
     }
+
+    return sf::Vector2f(0, 0);
 }

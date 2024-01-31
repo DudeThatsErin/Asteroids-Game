@@ -22,7 +22,7 @@ void BigBullet::update(float deltaTime)
             if (physics::intersects(position, physics::getTransformed(tasteroid->getVertexArray(), transform))) {
                 lifeTime = 0.0f;
                 Game::removeList.push_back(std::find(Game::entities.begin(), Game::entities.end(), tasteroid));
-                Game::score += 50;
+                Game::score += 20;
             }
         }
     }

@@ -5,18 +5,26 @@
 static std::mt19937 gen(std::random_device{}());
 
 Asteroid::Asteroid(sf::Vector2f direction, sf::Vector2f position)
-    : Entity(position, 0), direction(direction), array(sf::LinesStrip, 11), life() {
-    array[0].position = sf::Vector2f(-40, 40);
-    array[1].position = sf::Vector2f(-50, 10);
-    array[2].position = sf::Vector2f(-10, -20);
-    array[3].position = sf::Vector2f(-20, -40);
-    array[4].position = sf::Vector2f(10, -40);
-    array[5].position = sf::Vector2f(40, -20);
-    array[6].position = sf::Vector2f(40, -10);
-    array[7].position = sf::Vector2f(0, 0);
-    array[8].position = sf::Vector2f(40, 20);
-    array[9].position = sf::Vector2f(0, 30);
-    array[10].position = array[0].position; // closes the asteroid; without this the asteroid has an open spot; only needed for LinesStrip
+    : Entity(position, 0), direction(direction), array(sf::LinesStrip, 19), life() {
+    array[0].position = sf::Vector2f(40, 5);
+    array[1].position = sf::Vector2f(30, 10);
+    array[2].position = sf::Vector2f(35, 20);
+    array[3].position = sf::Vector2f(25, 30);
+    array[4].position = sf::Vector2f(5, 30);
+    array[5].position = sf::Vector2f(-5, 25);
+    array[6].position = sf::Vector2f(-5, 20);
+    array[7].position = sf::Vector2f(-10, 15);
+    array[8].position = sf::Vector2f(-15, 10);
+    array[9].position = sf::Vector2f(-5, 5);
+    array[10].position = sf::Vector2f(-15, -5);
+    array[11].position = sf::Vector2f(-15, -15);
+    array[12].position = sf::Vector2f(-5, -25);
+    array[13].position = sf::Vector2f(0, -20);
+    array[14].position = sf::Vector2f(10, -25);
+    array[15].position = sf::Vector2f(30, -25);
+    array[16].position = sf::Vector2f(35, -20);
+    array[17].position = sf::Vector2f(40, -15);
+    array[18].position = array[0].position; // closes the asteroid; without this the asteroid has an open spot; only needed for LinesStrip
 
     for (size_t i = 0; i < array.getVertexCount(); i++) {
         array[i].color = sf::Color::White;
@@ -102,4 +110,6 @@ sf::Vector2f Asteroid::getRandomPosition()
         yAxis = generate(0.0f, SCREEN_HEIGHT);
         return sf::Vector2f(xAxis, yAxis);
     }
+
+    return sf::Vector2f(0, 0);
 }

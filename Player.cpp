@@ -71,38 +71,24 @@ void Player::update(float deltaTime)
 	sf::Transform playerTransform = sf::Transform().translate(position).rotate(angle);
 
 	for (size_t i = 0; i < Game::entities.size(); i++) {
-		if (typeid(*Game::entities[i]) == typeid(Asteroid)) {
-			Asteroid* asteroid = dynamic_cast<Asteroid*>(Game::entities[i]);
 
-			if (asteroid->getLife() < ASTEROID_HIT_TIME) {
-				continue;
-			}
+            if (typeid(*Game::entities[i]) == typeid(Asteroid)) {
+                Asteroid* asteroid = dynamic_cast<Asteroid*>(Game::entities[i]);
+                sf::Transform transform = sf::Transform().translate(asteroid->position).rotate(asteroid->angle);
 
-			sf::Transform asteroidTransform = sf::Transform()
-				.translate(asteroid->position)
-				.rotate(asteroid->angle);
-
-			if (physics::intersects(physics::getTransformed(array, playerTransform),
-				physics::getTransformed(asteroid->getVertexArray(), asteroidTransform))) {
-				Game::gameOver();
-			}
-		} else if (typeid(*Game::entities[i]) == typeid(tAsteroid)) {
-            tAsteroid* tasteroid = dynamic_cast<tAsteroid*>(Game::entities[i]);
-        
-            if (tasteroid->gGetLife() < tASTEROID_HIT_TIME) {
-                continue;
+                if (physics::intersects(position, physics::getTransformed(asteroid->getVertexArray(), transform))) {
+                    Game::gameOver();
+                }
             }
+            if (typeid(*Game::entities[i]) == typeid(tAsteroid)) {
+                tAsteroid* tasteroid = dynamic_cast<tAsteroid*>(Game::entities[i]);
+                sf::Transform transform = sf::Transform().translate(tasteroid->position).rotate(tasteroid->angle);
 
-            sf::Transform tAsteroidTransform = sf::Transform()
-                .translate(tasteroid->position)
-                .rotate(tasteroid->angle);
-
-            if (physics::intersects(physics::getTransformed(array, playerTransform),
-                physics::getTransformed(tasteroid->getVertexArray(), tAsteroidTransform))) {
-                Game::gameOver();
+                if (physics::intersects(position, physics::getTransformed(tasteroid->getVertexArray(), transform))) {
+                    Game::gameOver();
+                }
             }
         }
-	}
 }
 
 void Player::render(sf::RenderWindow& window)
