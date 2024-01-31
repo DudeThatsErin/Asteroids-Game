@@ -1,7 +1,7 @@
 # Asteroids
 This is a game I made to test my knowledge of C++.
 
-![](AsteroidsGame.mp3)
+https://github.com/DudeThatsErin/Asteroids-Game/blob/master/AsteroidsGame.mp4
 
 If you want to run this game for yourself, go to the Releases section on the right side and download and run the .exe file.
 
