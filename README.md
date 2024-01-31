@@ -7,9 +7,9 @@ https://github.com/DudeThatsErin/Asteroids-Game/assets/2681022/187fa120-e303-46b
 If you want to run this game for yourself, go to the Releases section on the right side and download and run the .exe file.
 
 ## Features
-- Plays sounds when each bullet type is used
-- Big bullets only work on bigger asteroids and small bullets only work on smaller asteroids.
-  - The bullets have unique sounds to them as well.
+- Plays sounds when each lasers type is used
+- Big Lasers only work on bigger asteroids and small bullets only work on smaller asteroids.
+  - The lasers have unique sounds to them as well.
 - Game Over Screen
 - Start Menu/Screen
 - 10 Levels that get progressively harder as you go through them.
@@ -31,8 +31,8 @@ All you have to do from there is run the `Asteroids.exe` file.
 - A -> Left
 - S -> Backward
 - D -> Right
-- Right Mouse Click -> Big Bullet to shoot bigger asteroids
-- Left Mouse Click -> Smaller Bullet to shoot smaller asteroids
+- Right Mouse Click -> Big Laser to shoot bigger asteroids
+- Left Mouse Click -> Smaller Laser to shoot smaller asteroids
 
 ## Credits
 - Microsoft Visual Studio - Where I write my code
